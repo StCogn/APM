@@ -1,0 +1,110 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+<!-- Filter the Products   -->
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'><h4>Filtered by:  </h4></div>
+            <div class='col-md-4'>
+                <input type="text"
+                   [(ngModel)]='lstFilter' >
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <h4>Filtered by: {{lstFilter}} </h4>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <table class='table' *ngIf='students && students.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary' (click)='toggleImage()'>
+                               <span class="glyphicon glyphicon glyphicon-user"></span> 
+                               {{ showImage ? 'Hide':'Show'}} Avatar
+                            </button>
+                        </th>
+                        <th>Student Id</th>
+                        <th>Student Name </th>
+                        <th>Sex</th>
+                        <th>Age</th>
+                        <th>Annual Fee</th>
+                        <th>Enrollment Date</th>
+                        <th>Grade Rating</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor='let student of students | studentFilter:lstFilter'>
+                       <td><img [src]='student.imageURL' 
+                            [style.width.px]='avatarWidth' 
+                            style.margin.px=2 
+                            *ngIf='showImage'
+                            data-toggle='modal' data-target='#myModal' data-whatever='afzal' >
+                        </td>
+                       <td>{{student.studentId}}</td>
+                       <td><a [routerLink]="['/student', student.studentId]">{{student.studentName | lowercase}}</a></td>
+                       <td>{{student.sex}}</td>
+                       <td>{{student.age}}</td>
+                       <td>{{student.fee | currency: 'USD':true:'1.2-2'}}</td>
+                       <td>{{student.enrolmentDate | date:'mediumDate'}}</td>
+                       <!--<td>{{student.starRating}}</td> -->
+                       <!-- #starComp is a template variable. another way to call prop/method of child comp -->
+                       <td><cmp-star #starComp [rating] ='student.starRating' 
+                                (ratingClicked)='onRatingClicked($event)'> </cmp-star></td>
+                        <td>
+                            <a class="btn btn-primary" [routerLink]="['/studentEdit', student.studentId]" >
+                             <span class="glyphicon glyphicon-edit"></span>  Edit
+                            </a>
+                        </td>
+                   </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Expanded Image</h4>
+      </div>
+      <div class="modal-body">
+         <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+   $(document).ready(function(){
+        $('#myModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        });
+   }); 
+
+</script>

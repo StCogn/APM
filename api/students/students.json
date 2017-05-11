@@ -1,0 +1,43 @@
+[
+    {
+                "studentId": 101,
+                "studentName": "Afzal",
+                "sex": "M",
+                "age": 36,
+                "fee": 1500.50,
+                "starRating": 4,
+                "enrolmentDate": "01/01/2017",
+                "imageURL": "https://s-media-cache-ak0.pinimg.com/originals/7c/7b/e3/7c7be328bf3d0406f51e47fb656f9975.jpg"
+            },
+            {
+                "studentId": 102,
+                "studentName": "Manoj",
+                "sex": "M",
+                "age": 28,
+                "fee": 1200,
+                "starRating": 3.5,
+                "enrolmentDate": "01/01/2017",
+                "imageURL": "http://i.onionstatic.com/avclub/5666/15/16x9/960.jpg"
+
+            },
+            {
+                "studentId": 103,
+                "studentName": "Shukla",
+                "sex": "M",
+                "age": 26,
+                "fee": 1500.50,
+                "starRating": 2.5,
+                "enrolmentDate": "01/01/2017",
+                "imageURL": "https://s-media-cache-ak0.pinimg.com/originals/7c/7b/e3/7c7be328bf3d0406f51e47fb656f9975.jpg"
+            },
+            {
+                "studentId": 104,
+                "studentName": "Manu",
+                "sex": "M",
+                "age": 26,
+                "fee": 1200,
+                "starRating": 3,
+                "enrolmentDate": "01/01/2017",
+                "imageURL": "http://i.onionstatic.com/avclub/5666/15/16x9/960.jpg"
+            }
+]

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5", //target browser -- transpile to es5
+    "module": "commonjs", //
+    "moduleResolution": "node",
+    "sourceMap": true, // help debugging
+    "emitDecoratorMetadata": true, //provide support to decorators
+    "experimentalDecorators": true, //provide support to decorators
+    "removeComments": false,
+    "noImplicitAny": true, // set to true to use the strongly typed variables, otherwise all variable treated as any
+    "suppressImplicitAnyIndexErrors": true
+  }
+}

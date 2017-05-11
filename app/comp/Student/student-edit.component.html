@@ -1,0 +1,162 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        {{pageTitle}}
+    </div>
+
+    <div class="panel-body">
+        <form class="form-horizontal"
+              novalidate
+              (ngSubmit)="saveStudent()"
+              [formGroup]="studentForm" >
+            <fieldset>
+                <div class="form-group" 
+                     [ngClass]="{'has-error': displayMessage.studentName }">
+                    <label class="col-md-2 control-label" for="studentNameId">Student Name</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="studentNameId" 
+                                type="text" 
+                                placeholder="Name" 
+                                formControlName="studentName" />
+                        <span class="help-block" *ngIf="displayMessage.studentName">
+                                {{displayMessage.studentName}}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group" 
+                     [ngClass]="{'has-error': displayMessage.sex}">
+                    <label class="col-md-2 control-label" for="sexId">Gender</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="sexId" 
+                                type="text" 
+                                placeholder="Gender" 
+                                formControlName="sex" />
+                        <span class="help-block" *ngIf="displayMessage.sex">
+                                {{displayMessage.sex}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.age}">
+                    <label class="col-md-2 control-label" for="ageId">Age</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="ageId" 
+                                type="text" 
+                                placeholder="Age" 
+                                formControlName="age" />
+                        <span class="help-block" *ngIf="displayMessage.age">
+                                {{displayMessage.age}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.fee}">
+                    <label class="col-md-2 control-label" for="feeId">Annual Fee</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="feeId" 
+                                type="text" 
+                                placeholder="Fee" 
+                                formControlName="fee" />
+                        <span class="help-block" *ngIf="displayMessage.fee">
+                                {{displayMessage.fee}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group" [ngClass]="{'has-error': displayMessage.enDate}">
+                    <label class="col-md-2 control-label" for="enDateId">Enrollment Date</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="enDateId" 
+                                type="text" 
+                                formControlName="enDate" />
+                        <span class="help-block" *ngIf="displayMessage.enDate">
+                                {{displayMessage.enDate}}
+                        </span>
+                    </div>
+                </div>
+
+               <div class="form-group" [ngClass]="{'has-error': displayMessage.starRating}">
+                    <label class="col-md-2 control-label" for="starRatingId">Star Rating (1-5)</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="starRatingId" 
+                                type="number" 
+                                placeholder="Rating" 
+                                formControlName="starRating" />
+                        <span class="help-block" *ngIf="displayMessage.starRating">
+                                {{displayMessage.starRating}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="imageUrlId">Image URL</label>
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                                id="imageUrlId" 
+                                type="text" 
+                                formControlName="imageUrl" />
+                        
+                    </div>
+                </div>
+                
+                 <!--<div formArrayName="tags">
+                    <div class="row">
+                        <button class="col-md-offset-1 col-md-1 btn btn-default"
+                                type="button"
+                                (click)="addTag()">Add Tag
+                        </button>
+                    </div>
+                    <div class="form-group"
+                        *ngFor="let tag of tags.controls; let i=index" >
+                        <label class="col-md-2 control-label" [attr.for]="i">Tag</label>
+
+                        <div class="col-md-8">
+                            <input class="form-control" 
+                                    [id]="i" 
+                                    type="text" 
+                                    placeholder="Tag" 
+                                    [formControlName]="i" />
+                        </div>
+                    </div>
+                </div>-->
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    style="width:80px;margin-right:10px"
+                                    [disabled]='!studentForm.valid'>
+                                Save
+                            </button>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               [routerLink]="['/students']">
+                                Cancel
+                            </a>
+                        </span>
+                        <span>
+                            <a class="btn btn-default"
+                               style="width:80px"
+                               (click)="deleteStudent()">
+                                Delete
+                            </a>
+                        </span>       
+                     </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    </div>
+
+</div>
