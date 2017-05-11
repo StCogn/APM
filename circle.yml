@@ -5,5 +5,5 @@ test:
   pre:
  
   override:
-    - npm run test:once
+    - npm run test-once
 
