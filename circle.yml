@@ -3,11 +3,7 @@ machine:
     version: 6.10.0
 test:
   pre:
-    # - npm run lint
+ 
   override:
     - npm run test:once
-# deployment:
-  # production:
-  #   branch: master
-  #   heroku:
-  #     appname: mock-smartlabs
+
