@@ -5,7 +5,7 @@ test:
   pre:
     # - npm run lint
   override:
-    - npm run test:once
+    - npm run test-once
 # deployment:
   # production:
   #   branch: master
