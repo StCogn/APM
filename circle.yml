@@ -3,7 +3,6 @@ machine:
     version: 6.10.0
 test:
   pre:
-<<<<<<< HEAD
     # - npm run lint
   override:
     - npm run test-once
@@ -12,9 +11,4 @@ test:
   #   branch: master
   #   heroku:
   #     appname: mock-smartlabs
-=======
  
-  override:
-    - npm run test-once
-
->>>>>>> 0e7f05202cfc16db90206da96b5bf5a4eb1a58cd
